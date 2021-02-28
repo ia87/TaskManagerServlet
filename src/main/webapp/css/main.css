@@ -1,0 +1,60 @@
+h1{
+	color:#0000FF;
+}
+
+h2{
+	color:#FF0000;
+}
+
+table {
+	table-layout: fixed;
+	width:100%
+}
+
+td, th {
+	text-align: center;
+	align-content: center;
+	align-items: center;
+	vertical-align: center;
+}
+td {
+	word-wrap:break-word;
+}
+
+div.flexbox {
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	overflow: hidden;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+div.panel-wizard {
+	flex: 1 1 auto;
+}
+
+
+.flexbox .col-lg-3{
+	padding-left: 0;
+	padding-right:0;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+html,
+body {
+	height: 100%;
+}
+.wrapper, .container {
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+}
+.content {
+	flex: 1 0 auto;
+}
+.footer {
+	flex: 0 0 auto;
+}

@@ -1,0 +1,16 @@
+<!-- Change the lines below according your RDBMS and DB -->
+
+<Context>
+
+	<Resource name="jdbc/taskManagerDB"
+		auth="Container" 
+		type="javax.sql.DataSource"
+		maxActive="100" maxIdle="30" maxWait="10000"
+		username="root" password="root"
+		driverClassName="com.mysql.cj.jdbc.Driver"
+		defaultAutoCommit="true"
+		defaultTransactionIsolation="READ_COMMITTED"
+		connectionProperties="useUnicode=yes;characterEncoding=utf8;serverTimezone=UTC;"
+		url="jdbc:mysql://127.0.0.1:3306/taskmanagerdb"/>
+
+</Context>

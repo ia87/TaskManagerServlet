@@ -1,0 +1,84 @@
+<%--=========================================================================== 
+Header (top area). 
+===========================================================================--%> 
+
+<%@ page import="com.my.TaskManagerServlet.model.entity.Role" %>
+<%@ include file="/WEB-INF/jspf/directive/page.jspf" %>
+<%@ include file="/WEB-INF/jspf/directive/taglib.jspf" %>
+
+<fmt:setLocale value="${sessionScope.lang}"/>
+<fmt:setBundle basename="lang.res"/>
+
+<div class="header">
+
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="${pageContext.request.contextPath}"><fmt:message key="title.home"/></a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<c:if test="${isADMIN}">
+						<li class="active"><a href="app?command=users"><fmt:message key="title.users"/></a></li>
+					</c:if>
+					<c:if test="${isUSER}">
+						<li class="active"><a href="app?command=tasks"><fmt:message key="buttons.tasks"/></a></li>
+					</c:if>
+				</ul>
+
+
+				<c:if test="${empty user}">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="app?command=registration">
+							<span class="glyphicon glyphicon-user"></span>
+							<span><fmt:message key="buttons.signUp"/></span>
+						</a></li>
+						<li><a href="app?command=login">
+							<span class="glyphicon glyphicon-log-in"></span>
+							<span><fmt:message key="buttons.login"/></span>
+						</a></li>
+					</ul>
+				</c:if>
+
+				<c:if test="${not empty user}">
+					<ul class="nav navbar-nav navbar-right">
+						<p class="navbar-text">${user.firstName} ${user.lastName} ${user.email}</p>
+						<c:if test="${isADMIN}">
+							<p class="navbar-text"> ROLE:ADMIN</p>
+						</c:if>
+						<c:if test="${isUSER}">
+							<p class="navbar-text"> ROLE:USER</p>
+						</c:if>
+						<li><a href="app?command=logout">
+							<span class="glyphicon glyphicon-log-out"></span>
+							<span><fmt:message key="buttons.logout"/></span>
+						</a></li>
+					</ul>
+				</c:if>
+
+				<ul class="nav navbar-nav navbar-right">
+					<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><fmt:message key="buttons.language"/><span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="${pageContext.request.contextPath}?sessionLocale=en"><fmt:message key="buttons.lang.en"/></a></li>
+							<li><a href="${pageContext.request.contextPath}?sessionLocale=uk_UA"><fmt:message key="buttons.lang.ua"/></a></li>
+						</ul>
+					</li>
+				</ul>
+
+			    </div>
+
+	    	</div>
+	    </nav>
+
+
+    </div>
+</div>
+
+
+
+
