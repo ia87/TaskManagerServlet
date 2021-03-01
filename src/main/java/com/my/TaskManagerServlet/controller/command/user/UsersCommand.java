@@ -18,9 +18,10 @@ import java.util.List;
 
 public class UsersCommand extends Command {
     private static final Logger LOG = Logger.getLogger(LoginCommand.class);
-    UserService userService = new UserService();
+    UserService userService;
 
-    public UsersCommand() throws DBException {
+    public UsersCommand(UserService userService) throws DBException {
+        this.userService = userService;
     }
 
     @Override

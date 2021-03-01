@@ -6,6 +6,7 @@ import com.my.TaskManagerServlet.controller.command.login.RegistrationCommand;
 import com.my.TaskManagerServlet.controller.command.task.*;
 import com.my.TaskManagerServlet.controller.command.user.UsersCommand;
 import com.my.TaskManagerServlet.exception.DBException;
+import com.my.TaskManagerServlet.model.service.UserService;
 import org.apache.log4j.Logger;
 
 import java.util.Map;
@@ -25,7 +26,7 @@ public class CommandContainer {
 		// common commands
 		try {
 			commands.put("login", new LoginCommand());
-			commands.put("users", new UsersCommand());
+			commands.put("users", new UsersCommand(new UserService()));
 			commands.put("tasks", new TasksCommand());
 			commands.put("addTask", new AddTaskCommand());
 			commands.put("editTask", new EditTaskCommand());
